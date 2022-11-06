@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;1,300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+
+}
+
+.container{
+    background-color: rgb(255, 143, 15);
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    padding-top: 50px;
+    color: #fff;
+}
+
+.add-todo{
+    width: 90%;
+}
+.add-todo input{
+    width: 70%;
+    margin-top: 30px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+}
+.add-todo input:focus,
+.add-todo input:active{
+    border: none;
+    outline: none;
+}
+
+
+.columns{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    padding-top: 50px;
+    color: #000;
+}
+
+.box{
+    background-color: #fff;
+    border-radius: 24px;
+    width: 30%;
+    height: 80vh;
+    padding: 24px;
+    font-size: 24px;
+}
+
+.task-title{
+    margin-bottom: 24px;
+}
+
+.task-card{
+    /* background-color: aqua; */
+    margin: 12px;
+    border-radius: 8px;
+    padding: 12px 8px;
+}
+
+.todo-card{
+    background-color: #cacaca;
+}
+
+.doing-card{
+    background-color: #ffbf6b;
+}
+
+.done-card{
+    background-color: #bdffd8;
+}

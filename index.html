@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>TodoList</title>
+</head>
+<body>
+    <div class="container">
+        <!-- <h1>TodoList</h1> -->
+        <div class="add-todo">
+            <input id="input" type="text" placeholder="add your todos here ...">
+        </div>
+        <div class="columns">
+            <div class="box todo-box" data-drop-target="true">
+                <div class="task-title">Todo</div>
+                <div class="task-card todo-card" draggable="true">Todo</div>
+            </div>
+            <div class="box" data-drop-target="true">
+                <div class="task-title">Doing</div>
+                <div class="task-card doing-card" draggable="true">In progress</div>
+            </div>
+            <div class="box" data-drop-target="true">
+                <div class="task-title">Done</div>
+                <div class="task-card done-card" draggable="true">Done</div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+</html>
