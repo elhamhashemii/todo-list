@@ -9,8 +9,17 @@ const doneColumn = document.querySelector(".done-box")
 const newTask = document.querySelector("#input");
 const boxes = document.querySelectorAll(".box")
 const draggableBoxes = document.querySelectorAll(".task-card")
-let draggableBoxesLength = draggableBoxes.length
+let draggableBoxesLength = draggableBoxes.length;
 
+
+let tasks = {
+    todo: {},
+    doing: {},
+    done: {}
+}
+
+// Set local storage for tasks
+localStorage.setItem("tasks", JSON.stringify(tasks))
 
 
 // *********************
@@ -25,6 +34,7 @@ function createTaskElement(value){
     element.innerText = value
     todoColumn.appendChild(element)
     draggableBoxesLength += draggableBoxesLength + 1
+    // Update Local Storage
 }
 
 function clearInput(){
