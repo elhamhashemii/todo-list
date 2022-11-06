@@ -23,11 +23,11 @@ let draggableBoxesLength = draggableBoxes.length;
 // localStorage.setItem("done", done);
 
 
-let todosData = JSON.parse(localStorage.getItem('todos'))
-    for (let i = 0; i < todosData.length; i++) {
-        console.log("yey");
-        createTaskElement(todosData.value, `${todos.status}-card`)
-    }
+// let todosData = JSON.parse(localStorage.getItem('todos'))
+//     for (let i = 0; i < todosData.length; i++) {
+//         console.log("yey");
+//         createTaskElement(todosData.value, `${todos.status}-card`)
+//     }
 
 
 // *********************
@@ -49,8 +49,8 @@ function clearInput(){
     return newTask.value = ""
 }
 function addTask(task){
-    todos.value.push(task)
-    localStorage.setItem("todos", JSON.stringify(todos))
+    // todos.value.push(task)
+    // localStorage.setItem("todos", JSON.stringify(todos))
     createTaskElement(task, "todo-card")
 
 };
