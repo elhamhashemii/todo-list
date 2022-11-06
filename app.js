@@ -12,36 +12,46 @@ const draggableBoxes = document.querySelectorAll(".task-card")
 let draggableBoxesLength = draggableBoxes.length;
 
 
-let tasks = {
-    todo: {},
-    doing: {},
-    done: {}
-}
+// let todos = {status: "todo" , value: []}
+// let doing = {status: "doing" , value: []}
+// let done = {status: "done" , value: []}
+
 
 // Set local storage for tasks
-localStorage.setItem("tasks", JSON.stringify(tasks))
+// localStorage.setItem("todos", todos);
+// localStorage.setItem("doing", doing);
+// localStorage.setItem("done", done);
+
+
+let todosData = JSON.parse(localStorage.getItem('todos'))
+    for (let i = 0; i < todosData.length; i++) {
+        console.log("yey");
+        createTaskElement(todosData.value, `${todos.status}-card`)
+    }
 
 
 // *********************
 // INPUT CODES
 // *********************
 
-function createTaskElement(value){
+
+function createTaskElement(value, statusClass){
     let element = document.createElement("div")
     element.setAttribute("draggable", "true")
     element.setAttribute("id", `draggable-box-${draggableBoxesLength}`)
-    element.classList.add("task-card", "todo-card")
+    element.classList.add("task-card", statusClass)
     element.innerText = value
     todoColumn.appendChild(element)
     draggableBoxesLength += draggableBoxesLength + 1
-    // Update Local Storage
 }
 
 function clearInput(){
     return newTask.value = ""
 }
 function addTask(task){
-    createTaskElement(task)
+    todos.value.push(task)
+    localStorage.setItem("todos", JSON.stringify(todos))
+    createTaskElement(task, "todo-card")
 
 };
 newTask.addEventListener("keyup", (e) => {
