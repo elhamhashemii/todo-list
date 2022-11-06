@@ -1,5 +1,9 @@
-// Input codes
+// *********************
+// INPUT CODES
+// *********************
 const todoColumn = document.querySelector(".todo-box")
+const doingColumn = document.querySelector(".doing-box")
+const doneColumn = document.querySelector(".done-box")
 const newTask = document.querySelector("#input");
 
 
@@ -27,15 +31,58 @@ newTask.addEventListener("keyup", (e) => {
 })
 
 
+// *********************
+// DRAG AND DROP CODES 
+// *********************
 
-const draggableBox = document.querySelectorAll(".task-card")
-for(let i = 0; i < draggableBox.length; i++){
-    // It doesnt work and I dont know why :(
-    // draggableBox.id = "draggable-box-" + i;
-    console.log(draggableBox[i]);
-    draggableBox[i].addEventListener("dragstart", (e) => {
-        console.log(e);
-        e.dataTransfer.setData("text/plain", e.target.id)
-    })
-    
+
+const boxes = document.querySelectorAll(".box")
+const draggableBoxes = document.querySelectorAll(".task-card")
+
+boxes.forEach(box => {
+    box.addEventListener('dragstart', dragStart);
+    box.addEventListener('dragover', dragOver);
+    box.addEventListener('drop', drop);
+});
+
+for(let i = 0; i < draggableBoxes.length; i++){
+    draggableBoxes[i].id = "draggable-box-" + i
 }
+
+
+
+function dragStart(e) {
+    e.dataTransfer.setData("text/plain", e.target.id)
+
+}
+
+function dragOver(e){
+    e.preventDefault()
+}
+
+function drop(e){
+    e.preventDefault()
+    console.log("Drop");
+    const id = e.dataTransfer.getData("text/plain");
+    const dragged = document.getElementById(id)
+    e.target.appendChild(dragged)
+    // add class based on where we drop card
+    if(e.target.className.includes("todo-box")){
+        dragged.classList = "";
+        dragged.classList.add("task-card" ,"todo-card")
+        console.log("class applied");
+    } else if(e.target.className.includes("doing-box")){
+        dragged.classList = "";
+        dragged.classList.add("task-card" ,"doing-card")
+        console.log("class applied");
+
+    }
+    else if(e.target.className.includes("done-box")){
+        dragged.classList = "";
+        dragged.classList.add("task-card" ,"done-card")
+        console.log("class applied22");
+
+    }
+}
+
+
