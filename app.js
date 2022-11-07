@@ -34,6 +34,7 @@ let draggableBoxesLength = draggableBoxes.length;
 // INPUT CODES
 // *********************
 
+const todos = JSON.parse(localStorage.getItem("todos"))
 
 function createTaskElement(value, statusClass){
     let element = document.createElement("div")
@@ -43,6 +44,11 @@ function createTaskElement(value, statusClass){
     element.innerText = value
     todoColumn.appendChild(element)
     draggableBoxesLength += draggableBoxesLength + 1
+    //  Set lcoalStorage
+    localStorage.setItem("todos", JSON.stringify({status: "todo", data: new Array}))
+    // console.log(todos);
+    todos.data.push(value)
+    // localStorage.setItem("todos", JSON.stringify({status: "todo", data: todos}))
 }
 
 function clearInput(){
@@ -106,11 +112,15 @@ function drop(e){
     } else if(e.target.className.includes("doing-box")){
         dragged.classList = "";
         dragged.classList.add("task-card" ,"doing-card")
+        localStorage.setItem("doing", JSON.stringify({status: "doing", data: new Array}))
+
 
     }
     else if(e.target.className.includes("done-box")){
         dragged.classList = "";
         dragged.classList.add("task-card" ,"done-card")
+        localStorage.setItem("done", JSON.stringify({status: "done", data: new Array}))
+
 
     }
 }
