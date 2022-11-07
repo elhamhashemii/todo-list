@@ -47,7 +47,7 @@ function createTaskElement(value, statusClass){
     //  Set lcoalStorage
     localStorage.setItem("todos", JSON.stringify({status: "todo", data: new Array}))
     // console.log(todos);
-    todos.data.push(value)
+    // todos.data.push(value)
     // localStorage.setItem("todos", JSON.stringify({status: "todo", data: todos}))
 }
 
